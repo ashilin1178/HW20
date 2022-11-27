@@ -20,7 +20,7 @@ def genres_dao(test_genres):
 
     genres_d.get_one = MagicMock(side_effect=test_genres.get)
     genres_d.get_all = MagicMock(return_value=test_genres.values())
-    genres_d.create = MagicMock(return_value=Genre(id=4))
+    genres_d.create = MagicMock()
     genres_d.update = MagicMock()
     genres_d.delete = MagicMock()
 
@@ -62,4 +62,4 @@ class TestGenreService:
         assert genre.name is not None
 
     def test_delete(self):
-        self.genre_service.delete(1)
+        assert self.genre_service.delete(1) is None

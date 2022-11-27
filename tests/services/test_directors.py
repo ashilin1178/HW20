@@ -62,5 +62,4 @@ class TestDirectorService:
         assert director.name is not None
 
     def test_delete(self):
-        self.director_service.delete(1)
-
+        assert self.director_service.delete(1) is None
